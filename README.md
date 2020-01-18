@@ -16,11 +16,11 @@ sudo apt-get dist-upgrade
 sudo apt-get install git
 ```
 
-Then you can download the latest RetroPie setup script with
+Then you can download the latest RetroHeim edition RetroPie setup script with
 
 ```shell
 cd
-git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+git clone --depth=1 https://github.com/RetroHeim-Soft/RetroPie-Setup.git
 ```
 
 The script is executed with 
