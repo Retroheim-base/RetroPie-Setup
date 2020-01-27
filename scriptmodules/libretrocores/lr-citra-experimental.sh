@@ -21,7 +21,7 @@ function depends_lr-citra-experimental() {
 }
 
 function sources_lr-citra-experimental() {
-    gitPullOrClone "$md_build" https://github.com/retroheim/citra.git libretro
+    gitPullOrClone "$md_build" https://github.com/retroheim/citra.git
 }
 
 function build_lr-citra-experimental() {
