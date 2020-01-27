@@ -34,10 +34,10 @@ function build_lr-citra-experimental() {
 }
 
 function install_lr-citra-experimental() {
-    mv "build/src/citra_libretro/citra_libretro.so" "build/src/citra_libretro/citra_experimental_libretro.so"
     md_ret_files=(
-        'build/src/citra_libretro/citra_experimental_libretro.so'
+        'build/src/citra_libretro/citra_update_libretro.so'
     )
+        mv "build/src/citra_libretro/citra_libretro.so" "build/src/citra_libretro/citra_experimental_libretro.so"
 }
 
 function configure_lr-citra-experimental() {
