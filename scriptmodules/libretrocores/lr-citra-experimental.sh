@@ -21,7 +21,7 @@ function depends_lr-citra-experimental() {
 }
 
 function sources_lr-citra-experimental() {
-    gitPullOrClone "$md_build" https://github.com/retroheim/citra.git
+    gitPullOrClone "$md_build" https://github.com/retroheim/citra.git update
 }
 
 function build_lr-citra-experimental() {
@@ -30,12 +30,12 @@ function build_lr-citra-experimental() {
     cmake -DENABLE_LIBRETRO=1 -DENABLE_SDL2=0 -DENABLE_QT=0 -DCMAKE_BUILD_TYPE="Release" -DENABLE_WEB_SERVICE=0 --target citra_libretro ..
     make clean
     make
-    md_ret_require="$md_build/build/src/citra_libretro/citra_experimental_libretro.so"
+    md_ret_require="$md_build/build/src/citra_libretro/citra_update_libretro.so"
 }
 
 function install_lr-citra-experimental() {
     md_ret_files=(
-        'build/src/citra_libretro/citra_experimental_libretro.so'
+        'build/src/citra_libretro/citra_update_libretro.so'
     )
 }
 
@@ -43,6 +43,6 @@ function configure_lr-citra-experimental() {
     mkRomDir "3ds"
     ensureSystemretroconfig "3ds"
 
-    addEmulator 3 "$md_id" "3ds" "$md_inst/citra_experimental_libretro.so"
+    addEmulator 3 "$md_id" "3ds" "$md_inst/citra_update_libretro.so"
     addSystem "3ds"
 }
