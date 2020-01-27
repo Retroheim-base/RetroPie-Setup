@@ -27,15 +27,15 @@ function sources_lr-citra-experimental() {
 function build_lr-citra-experimental() {
     mkdir -p build
     cd build
-    cmake -DENABLE_LIBRETRO=1 -DENABLE_SDL2=0 -DENABLE_QT=0 -DCMAKE_BUILD_TYPE="Release" -DENABLE_WEB_SERVICE=0 --target citra_libretro ..
+    cmake -DENABLE_LIBRETRO=1 -DENABLE_SDL2=1 -DENABLE_QT=0 -DCMAKE_BUILD_TYPE="Release" -DENABLE_WEB_SERVICE=0 -DENABLE_CUBEB=1 -DENABLE_FFMPEG=1 -DUSE_DISCORD_PRESENCE=1 --target citra_libretro ..
     make clean
     make
-    md_ret_require="$md_build/build/src/citra_libretro/citra_update_libretro.so"
+    md_ret_require="$md_build/build/src/citra_libretro/citra_libretro.so"
 }
 
 function install_lr-citra-experimental() {
     md_ret_files=(
-        'build/src/citra_libretro/citra_update_libretro.so'
+        'build/src/citra_libretro/citra_libretro.so'
     )
         mv "build/src/citra_libretro/citra_libretro.so" "build/src/citra_libretro/citra_experimental_libretro.so"
 }
