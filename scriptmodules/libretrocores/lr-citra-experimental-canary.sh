@@ -21,7 +21,7 @@ function depends_lr-citra-experimental-canary() {
 }
 
 function sources_lr-citra-experimental-canary() {
-    gitPullOrClone "$md_build" https://github.com/RetroHeim-Soft/citra.git canary
+    gitPullOrClone "$md_build" https://github.com/RetroHeim-Soft/citra.git experiment
 }
 
 function build_lr-citra-experimental-canary() {
