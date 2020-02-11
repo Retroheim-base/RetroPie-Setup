@@ -25,6 +25,9 @@ function depends_lr-parallel-n64() {
 
 function sources_lr-parallel-n64() {
     gitPullOrClone "$md_build" https://github.com/libretro/parallel-n64.git
+    # revert upstream commit 11c1ae33 to fix segfault on exit
+    # modified revert due to code changes and excludes Makefile differences (as they are not relevant for us)
+    applyPatch "$md_data/01_revert_11c1ae33.diff"
     # avoid conflicting typedefs for GLfloat on rpi4/kms
     isPlatform "kms" && isPlatform "gles" && sed -i "/^typedef GLfloat GLdouble/d" "$md_build/libretro-common/include/glsm/glsm.h"
 }
@@ -33,7 +36,7 @@ function build_lr-parallel-n64() {
     rpSwap on 1000
     local params=()
     if isPlatform "videocore" || isPlatform "odroid-c1"; then
-        params+=(platform="$__platform" CPUFLAGS="-DARM_FIX")
+        params+=(platform="$__platform")
     else
         isPlatform "gles" && params+=(GLES=1 GL_LIB:=-lGLESv2)
         if isPlatform "arm"; then
