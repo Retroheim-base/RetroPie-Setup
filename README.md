@@ -4,9 +4,9 @@ RetroPie-Setup
 General Usage
 -------------
 
-Shell script to setup the Raspberry Pi, Vero4K, ODroid-C1 or a PC running Ubuntu with many emulators and games, using EmulationStation as the graphical front end. Bootable pre-made images for the Raspberry Pi are available for those that want a ready to go system, downloadable from the releases section of GitHub or via our website at https://retropie.org.uk
+Shell script to setup a PC running Ubuntu with many emulators and games, using EmulationStation as the graphical front end.
 
-This script is designed for use on Raspbian on the Raspberry Pi, OSMC on the Vero4K or Ubuntu on the ODroid-C1 or a PC.
+This script is designed for use on Ubuntu, any other system is unadvised since we (RetroHeim) are not going to be making sure that systems using an OS other than Ubuntu will work. Although the likelihood of it working at the start is high, if you do try to do so.
 
 To run the RetroPie Setup Script make sure that your APT repositories are up-to-date and that Git is installed:
 
@@ -16,11 +16,11 @@ sudo apt-get dist-upgrade
 sudo apt-get install git
 ```
 
-Then you can download the latest RetroPie setup script with
+Then you can download the latest RetroHeim edition RetroPie setup script with
 
 ```shell
 cd
-git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+git clone --depth=1 https://github.com/RetroHeim-Soft/RetroPie-Setup.git
 ```
 
 The script is executed with 
