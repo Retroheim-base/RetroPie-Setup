@@ -21,13 +21,13 @@ function depends_lr-citra-experimental-canary() {
 }
 
 function sources_lr-citra-experimental-canary() {
-    gitPullOrClone "$md_build" https://github.com/retroheim/citra.git
+    gitPullOrClone "$md_build" https://github.com/RetroHeim-So/citra.git libretro
 }
 
 function build_lr-citra-experimental-canary() {
     mkdir -p build
     cd build
-    cmake -DENABLE_LIBRETRO=1 -DENABLE_SDL2=1 -DENABLE_QT=0 -DCMAKE_BUILD_TYPE="Release" -DENABLE_WEB_SERVICE=1 -DENABLE_CUBEB=1 -DENABLE_FFMPEG=1 -DUSE_DISCORD_PRESENCE=1 --target citra_libretro ..
+    cmake -DENABLE_LIBRETRO=1 -DENABLE_SDL2=0 -DENABLE_QT=0 -DCMAKE_BUILD_TYPE="Release" --target citra_libretro ..
     make clean
     make
     md_ret_require="$md_build/build/src/citra_libretro/citra_libretro.so"
