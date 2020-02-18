@@ -22,8 +22,7 @@ function _update_hook_lr-flycast() {
 }
 
 function sources_lr-flycast() {
-    # build from an older commit due to current broken upstream
-    gitPullOrClone "$md_build" https://github.com/libretro/flycast.git "" "c59eac0"
+    gitPullOrClone "$md_build" https://github.com/libretro/flycast.git
     # don't override our C/CXXFLAGS and set LDFLAGS to CFLAGS to avoid warnings on linking
     applyPatch "$md_data/01_flags_fix.diff"
 }
@@ -59,8 +58,10 @@ function configure_lr-flycast() {
     mkUserDir "$biosdir/dc"
 
     # system-specific
-    iniConfig " = " "" "$configdir/dreamcast/retroarch.cfg"
-    iniSet "video_shared_context" "true"
+    if isPlatform "gl"; then
+        iniConfig " = " "" "$configdir/dreamcast/retroarch.cfg"
+        iniSet "video_shared_context" "true"
+    fi
 
     local def=0
     isPlatform "kms" && def=1
